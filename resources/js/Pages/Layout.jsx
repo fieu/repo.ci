@@ -17,14 +17,12 @@ export default function Layout({ children }) {
                     <nav className='flex-1'>
                         {navigation.map((item, index) => {
                             return (
-                                <div key={index} className={'inline'} >
-                                    <a href={item.href} className={
-                                        'text-white hover:border-b-2 hover:border-cyan-300'
-                                    }>
+                                <div key={index} className={'inline'}>
+                                    <a href={item.href} className={'text-white hover:border-b-2 hover:border-cyan-300'}>
                                         {item.name}
                                     </a>
-                                    <span className="text-zinc-500 cursor-default">
-                                    {navigation.length !== index + 1 ? ' | ' : ' '}
+                                    <span className='text-zinc-500 cursor-default'>
+                                        {navigation.length !== index + 1 ? ' | ' : ' '}
                                     </span>
                                 </div>
                             )
