@@ -33,7 +33,7 @@ class AuthController extends Controller
         $user = User::updateOrCreate([
             'github_id' => $githubUser->id,
         ], [
-            'username' => $githubUser->nickname,
+            'name' => $githubUser->nickname,
             'email' => $githubUser->email,
             'github_token' => $githubUser->token,
         ]);

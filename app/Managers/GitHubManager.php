@@ -48,7 +48,7 @@ class GitHubManager
     public function generateOrUpdateSSHKeys(): void
     {
         $keyStoragePath = storage_path('keys/' . $this->user->id);
-        $keyTitle = $this->user->username . '@repo.ci';
+        $keyTitle = $this->user->name . '@repo.ci';
 
         if (!File::exists($keyStoragePath)) {
             $process = new Process([

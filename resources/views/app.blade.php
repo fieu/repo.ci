@@ -14,7 +14,7 @@
 </head>
 <body class="font-mono">
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12">
-    <div class="mx-auto max-w-3xl p-4 border-zinc-700 border">
+    <div class="mx-auto max-w-3xl">
         @inertia
     </div>
 </div>

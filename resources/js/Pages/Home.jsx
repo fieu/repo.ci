@@ -1,11 +1,13 @@
 import React from 'react'
 import Layout from './Layout'
+import { usePage } from '@inertiajs/inertia-react'
 
 const Home = () => {
+    const { user } = usePage().props
     return (
         <>
             <h1>Welcome</h1>
-            <p>Hello, welcome to your first Inertia app!</p>
+            <p>Hello {user.name}, welcome to your first Inertia app!</p>
         </>
     )
 }
