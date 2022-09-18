@@ -1,21 +1,31 @@
-import { defineConfig } from 'vite';
-import laravel from 'laravel-vite-plugin';
-import fs from 'fs';
-import {homedir} from 'os'
-import {resolve} from 'path'
+import { defineConfig } from 'vite'
+import laravel from 'laravel-vite-plugin'
+import fs from 'fs'
+import { homedir } from 'os'
+import { resolve } from 'path'
+import react from '@vitejs/plugin-react'
 
 let host = 'repo.ci.test'
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: 'resources/js/app.jsx',
+            ssr: 'resources/js/ssr.jsx',
             refresh: true,
         }),
+        react(),
     ],
     server: detectServerConfig(host),
-});
-
+    resolve: {
+        alias: {
+            '@': '/resources/js',
+        },
+    },
+    ssr: {
+        noExternal: ['@inertiajs/server'],
+    },
+})
 
 function detectServerConfig(host) {
     let keyPath = resolve(homedir(), `.config/valet/Certificates/${host}.key`)
@@ -30,7 +40,7 @@ function detectServerConfig(host) {
     }
 
     return {
-        hmr: {host},
+        hmr: { host },
         host,
         https: {
             key: fs.readFileSync(keyPath),

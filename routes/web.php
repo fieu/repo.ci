@@ -10,6 +10,7 @@ Route::get('/', IndexController::class)->name('index');
 Route::prefix('auth')->name('auth.')->controller(AuthController::class)->group(static function () {
     Route::get('github/redirect', 'githubRedirect')->name('github.redirect');
     Route::get('github/callback', 'githubCallback')->name('github.callback');
+    Route::get('logout', 'logout')->name('logout');
 });
 
 Route::get('/repos', static function () {

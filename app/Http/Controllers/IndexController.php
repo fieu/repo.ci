@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+
 class IndexController extends Controller
 {
     public function __invoke()
     {
-        return view('index');
+        return Inertia::render('Home', [
+            'user' => auth()->user()
+        ]);
+//        return view('index');
     }
 }
