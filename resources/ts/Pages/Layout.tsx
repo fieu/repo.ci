@@ -2,12 +2,16 @@ import React, { useEffect } from 'react'
 import { usePage } from '@inertiajs/inertia-react'
 import Link from '../Components/Link'
 
+interface Props {
+    children?: React.ReactNode
+}
+
 const navigation = [
     { name: 'Projects', href: '#', current: false },
     { name: 'New', href: '#', current: false },
 ]
 
-export default function Layout({ children }) {
+export default function Layout({ children }: Props) {
     const { user } = usePage().props
     return (
         <>
