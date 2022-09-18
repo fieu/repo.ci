@@ -4,6 +4,7 @@ import fs from 'fs'
 import { homedir } from 'os'
 import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
+import run from 'vite-plugin-run'
 
 let host = 'repo.ci.test'
 
@@ -15,6 +16,14 @@ export default defineConfig({
             refresh: true,
         }),
         react(),
+        run([
+            {
+                startup: true,
+                name: 'typescript transform',
+                run: ['php', 'artisan', 'typescript:transform'],
+                condition: (file) => file.includes('Data.php'),
+            },
+        ]),
     ],
     server: detectServerConfig(host),
     resolve: {

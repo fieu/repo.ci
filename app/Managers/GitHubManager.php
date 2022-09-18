@@ -47,10 +47,10 @@ class GitHubManager
 
     public function generateOrUpdateSSHKeys(): void
     {
-        $keyStoragePath = storage_path('keys/' . $this->user->id);
-        $keyTitle = $this->user->name . '@repo.ci';
+        $keyStoragePath = storage_path('keys/'.$this->user->id);
+        $keyTitle = $this->user->name.'@repo.ci';
 
-        if (!File::exists($keyStoragePath)) {
+        if (! File::exists($keyStoragePath)) {
             $process = new Process([
                 'ssh-keygen',
                 '-t',
@@ -84,7 +84,7 @@ class GitHubManager
         }
 
         // Upload SSH key to GitHub via API
-        if (!$keyExists) {
+        if (! $keyExists) {
             $resp = Http::withToken($this->token)
                 ->withHeaders([
                     'User-Agent' => 'repo.ci - v1.0',
@@ -92,7 +92,7 @@ class GitHubManager
                 ])
                 ->post('https://api.github.com/user/keys', [
                     'title' => $keyTitle,
-                    'key' => File::get($keyStoragePath . '.pub'),
+                    'key' => File::get($keyStoragePath.'.pub'),
                 ]);
             if ($resp->failed()) {
                 throw new \DomainException('failed.');

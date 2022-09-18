@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import React from "react";
+import React from 'react'
 
 interface Props {
-    href: string,
-    className?: string,
+    href: string
+    className?: string
     children?: React.ReactNode
 }
 

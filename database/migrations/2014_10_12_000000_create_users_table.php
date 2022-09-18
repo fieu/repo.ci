@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('github_id');
+            $table->bigInteger('github_id');
             $table->string('github_token');
             $table->string('ssh_private_key_path')->nullable();
             $table->rememberToken();

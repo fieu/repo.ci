@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { usePage } from '@inertiajs/inertia-react'
 import Link from '../Components/Link'
 
 interface Props {
     children?: React.ReactNode
+    title?: string
 }
 
 const navigation = [
@@ -46,7 +47,7 @@ export default function Layout({ children }: Props) {
                 <article className='mt-6'>{children}</article>
             </main>
             <footer>
-                <p className='mt-6 italic'>
+                <p className='mt-6'>
                     Made by <Link href='https://sheldon.is'>sheldon</Link>
                 </p>
             </footer>

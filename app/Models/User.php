@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     protected function sshPublicKeyPath(): Attribute
     {
-        return Attribute::get(static fn ($value, $attributes) => $attributes['ssh_private_key_path'] . '.pub');
+        return Attribute::get(static fn ($value, $attributes) => $attributes['ssh_private_key_path'].'.pub');
     }
 }

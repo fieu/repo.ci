@@ -6,10 +6,7 @@ use App\Managers\GitHubManager;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Http;
 use Laravel\Socialite\Facades\Socialite;
-use Symfony\Component\Process\Process;
 
 class AuthController extends Controller
 {
@@ -52,5 +49,4 @@ class AuthController extends Controller
 
         return redirect()->route('index');
     }
-
 }

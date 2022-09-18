@@ -1,9 +1,12 @@
 import React from 'react'
 import Layout from './Layout'
-import { usePage } from '@inertiajs/inertia-react'
+import UserData = App.Data.UserData
 
-const Home = () => {
-    const { user } = usePage().props
+type Props = {
+    user: UserData
+}
+
+const Home = ({ user }: Props) => {
     return (
         <>
             <h1>Welcome</h1>
@@ -12,6 +15,6 @@ const Home = () => {
     )
 }
 
-Home.layout = (page) => <Layout children={page} title='Welcome' />
+Home.layout = (page: React.ReactNode) => <Layout title='Welcome'>{page}</Layout>
 
 export default Home

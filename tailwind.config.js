@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.jsx'],
+    content: ['./resources/**/*.blade.php', './resources/**/*.ts', './resources/**/*.tsx'],
     // Add new font family 'Fira Mono'
     theme: {
         extend: {
